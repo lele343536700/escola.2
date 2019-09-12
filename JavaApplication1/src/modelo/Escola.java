@@ -14,6 +14,8 @@ public class Escola {
     private String nome;
     private String endereco;
     private String sigla;
+    private int nr_de_alunos;
+    private Double area;
 
     public int getCogido() {
         return cogido;
@@ -47,9 +49,25 @@ public class Escola {
         this.sigla = sigla;
     }
 
-    @Override
-    public String toString() {
-        return "Escola{" + "nome=" + nome + ", endereco=" + endereco + ", sigla=" + sigla + '}';
+    public int getNr_de_alunos() {
+        return nr_de_alunos;
     }
 
+    public void setNr_de_alunos(int nr_de_alunos) {
+        this.nr_de_alunos = nr_de_alunos;
+    }
+
+    public Double getArea() {
+        return area;
+    }
+
+    public void setArea(Double area) {
+        this.area = area;
+    }
+
+    @Override
+    public String toString() {
+        return "Escola{" + "nome=" + nome + '}';
+    }
+    
 }

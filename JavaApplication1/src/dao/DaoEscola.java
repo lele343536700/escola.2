@@ -17,12 +17,14 @@ import modelo.Escola;
 public class DaoEscola {
 
     public static boolean inserir(Escola objeto) {
-        String sql = "INSERT INTO escola (nome, endereco, sigla) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO escola (nome, endereco, sigla, nr_de_alunos, area) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
             ps.setString(1, objeto.getNome());
             ps.setString(2, objeto.getEndereco());
             ps.setString(3, objeto.getSigla());
+            ps.setInt(4, objeto.getNr_de_alunos());
+            ps.setDouble(5, objeto.getArea());
             ps.executeUpdate();
             return true;
         } catch (SQLException | ClassNotFoundException ex) {
@@ -36,6 +38,7 @@ public class DaoEscola {
         objeto.setNome("Instituto Federal do Rio Grande do Sul");
         objeto.setEndereco("Farroupilha");
         objeto.setSigla("IFRS");
+        objeto.setCodigo(rs.getInt(""));
 
         boolean resultado = inserir(objeto);
         if (resultado) {
